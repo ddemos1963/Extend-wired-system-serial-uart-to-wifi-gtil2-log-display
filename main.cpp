@@ -54,6 +54,9 @@ const long timeoutTime = 2000;
 
 void setup() {
 
+  pinMode(2, OUTPUT);    // Built in LED
+  digitalWrite(2, HIGH); // Turn LED off
+  
   Serial.begin(9600);
   SSerial.begin(9600);
 
@@ -100,11 +103,14 @@ byte n = SSerial.available();
 
     if (y == 0x0707) { // Sync found
 
+      digitalWrite(2, LOW); // Turn built in LED on as data is received into the buffer
+      
       SSerial.readBytes(myData, 296);
 
       for (int i = 0; i < 296; i++)
  
-
+      digitalWrite(2, HIGH); // Turn bult in LED off
+        
       VAC = (myData[278]*256+myData[279])*0.1;
       Output = (myData[280]*256+myData[281])*0.1;
       VDC = (myData[282]*256+myData[283])*0.125;
