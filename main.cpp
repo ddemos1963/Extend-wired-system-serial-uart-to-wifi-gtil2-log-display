@@ -25,9 +25,10 @@ SoftwareSerial SSerial(4, 5); // RX (GPIO4), TX (GPIO5)
 
 byte myData[300];
 
+int16_t Load;
+
 float VAC;
 float Output;
-float Load;
 float VDC;
 float TempConv;
 float TempF;
@@ -115,7 +116,9 @@ byte n = SSerial.available();
       Output = (myData[280]*256+myData[281])*0.1;
       VDC = (myData[282]*256+myData[283])*0.125;
       TempConv = (myData[290]*256+myData[291]);
-      Load = (myData[294]*256+myData[295])*0.1;
+//      Load = (myData[294]*256+myData[295])*0.1;
+      Load = (uint16_t) myData[294] << 8 | (myData[295] - 4);
+      Load = Load * 0.1;
 
 
       // Convert the value to resistance
@@ -140,7 +143,7 @@ byte n = SSerial.available();
         Serial.println(F(" W"));
 
         Serial.print(F("AC Load: "));
-        Serial.print(Load, 1);
+        Serial.print(Load);
         Serial.println(" W");
 
         Serial.print(F("Solar Voltage: "));
@@ -246,7 +249,7 @@ byte n = SSerial.available();
             client.println(F("</font></h2></p>"));
 
             client.print(F("<p><h2><font size=4><font color=black>AC Load: "));
-            client.print(Load, 1);
+            client.print(Load);
             client.print(F(" Watts"));
             client.println(F("</font></h2></p>"));    
 
