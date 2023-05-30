@@ -116,7 +116,7 @@ byte n = SSerial.available();
       Output = (myData[280]*256+myData[281])*0.1;
       VDC = (myData[282]*256+myData[283])*0.125;
       TempConv = (myData[290]*256+myData[291]);
-      Load = myData[294] << 8 | (myData[295] - 4);
+      Load = (myData[294]*256+myData[295]);
       Load = Load * 0.1;
 
 
