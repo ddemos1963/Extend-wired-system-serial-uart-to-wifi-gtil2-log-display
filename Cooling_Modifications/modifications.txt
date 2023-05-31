@@ -1,1 +1,16 @@
+August 2nd, 2020
+
+Reversed mounting direction and airflow.
+All three fans turned around. Now air exits the AC side which is now the top. Better fan mounting screws were used. This should improve the cooling of the FETs and elctrolytic capacitors.
+
+The cover with LCD display was rotated 180 degrees to have the display right side up. The bottom two mounting screws on the LCD display was replaced with thinner screws not to hit the electrolytic capacitors when the cover is closed. The temperature sensor also needed to be moved to the other heatsink and the top insulated with electrical tape since it comes close to the LCD panel PCB.
+
+An additional temperture sensor was added to the heatsink. A sheathed DS18B20 sensor was sandwitched under the SCR mounting bracket on the heatsink. The top if the bracket was bent slightly to tighten the sheathed temperature sensor. This was wired to a 3 pin socket that replaced the external current sensor socket which is not used. This additional sensor will allow EmonCMS to log the inverter temperature.
+
+The two 30 amp DC fuses were replaced with two 15 amp fuses. This inverter will run with two 345W solar panels which has a maximum rated current of 18.12 Amps Vmp and Isc of 19.06 Amps.
+
+05/25/2023
+
+Changed the two 15 amp fuses for two 10 amp fuses.
+
 
