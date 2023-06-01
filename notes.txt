@@ -1,1 +1,10 @@
+Hi s-max- I just tested to web page running on both my laptop and my phone and it has been running two days and seems stable.
+
+You can change the web page refresh rate on line 227 of the code:
+"client.println("Refresh: 5"); // refresh the page automatically every 5 sec"
+
+I am using the standard ESP8266WiFi.h library. It will not handle multiple client requests at the same time. It is a simple client. ESP will not send to web page until the buffer has been filled with the data received from the inverter since the client is handled in the loop after the data is received from the inverter.
+
+I did try the library you were using ESPAsyncWebServer.h but I fount it to have stability issues with that library.
+
 
